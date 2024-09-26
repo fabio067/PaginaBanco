@@ -1,22 +1,106 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* Estilos globais */
 body {
-  margin-bottom: 60px;
+    font-family: 'Georgia', serif;
+    background-color: #f0f0f0; /* Cor de fundo mais clara */
+    color: #333; /* Cor do texto mais escura */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Cabeçalho com efeito de sombra */
+header {
+    background-color: #007bff; /* Cor azul padrão */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 50px; /* Ajuste a altura conforme necessário */
+}
+
+/* Rodapé centralizado com sombra */
+footer {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Centralizando o formulário */
+.container {
+    flex: 1; /* Ocupa todo o espaço restante */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    padding: 20px; /* Adiciona um pouco de espaço interno */
+}
+
+/* Formulário */
+form {
+    width: 400px; /* Ajuste a largura do formulário */
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Seção dos botões */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.btn {
+    padding: 15px 25px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 14px;
+}
+
+.btn-adicionar {
+    background-color: #00cc00;
+    color: #fff;
+}
+
+.btn-remover {
+    background-color: #ff4444;
+    color: #fff;
+}
+
+.btn-consultar-fila {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+.btn-consultar-todos {
+    background-color: #FFA500;
+    color: #333;
 }
