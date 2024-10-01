@@ -44,7 +44,9 @@ function adicionarCliente() {
 
 // Função para remover cliente
 function removerCliente() {
-    fetch('https://localhost:7271/FilaBanco/RemoverCliente')  // URL da API
+    fetch('https://localhost:7271/FilaBanco/RemoverCliente', {  // URL da API
+        method: 'DELETE'  // Corrigindo o método para DELETE
+    })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Erro ao remover cliente');
@@ -99,8 +101,26 @@ function consultarClientesAtendidos() {
     fetch('https://localhost:7271/FilaBanco/ConsultarClientesAtendidos')  // URL da API
         .then(response => response.json())
         .then(data => {
+            console.log("Clientes atendidos recebidos:", data);  // Verifica se os dados estão chegando
+
             const resultadoDiv = document.getElementById('resultado');
-            resultadoDiv.textContent = 'Clientes atendidos:\n' + JSON.stringify(data, null, 2);
+            resultadoDiv.innerHTML = '';  // Limpa o conteúdo anterior
+
+            if (data.length === 0) {
+                resultadoDiv.textContent = 'Nenhum cliente foi atendido até agora.';
+                return;
+            }
+
+            // Criar uma lista para mostrar os clientes atendidos
+            const ul = document.createElement('ul');
+
+            data.forEach(cliente => {
+                const li = document.createElement('li');
+                li.textContent = `Nome: ${cliente.nome}, Idade: ${cliente.idade}`;
+                ul.appendChild(li);
+            });
+
+            resultadoDiv.appendChild(ul);
         })
         .catch(error => {
             console.error('Erro:', error);
